@@ -53,9 +53,9 @@ def import_appropriations():
 		for row in budget_reader:
 			department_number = row[0]
 			department_name = row[1]
-			year = row[12]
+			year = int(row[12])
 
-			if year <= '2013':
+			if year <= 2013:
 				continue
 			if not department_number.isdigit():
 				continue
@@ -86,7 +86,7 @@ def import_appropriations():
 			if year not in departments[department_name]['programs'][program_name]['years']:
 				departments[department_name]['programs'][program_name]['years'][year] = 0
 			
-			departments[department_name]['programs'][program_name]['years'][year] += int(float(amount))
+			departments[department_name]['programs'][program_name]['years'][year] += int(amount)
 
 	return departments
 
