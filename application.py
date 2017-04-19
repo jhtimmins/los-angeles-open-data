@@ -9,8 +9,6 @@ application.config.from_pyfile('config.py')
 application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(application)
 
-from models import Appropriation
-
 def get_appropriations():
 	with open("data/appropriations.txt") as data_file:
 		return json.load(data_file)
@@ -56,7 +54,7 @@ def index():
 	department_names = sorted(appropriations.keys())
 
 	return render_template(
-		'index.html',
+		'home.html',
 		department_names = department_names
 		)
 
@@ -66,7 +64,7 @@ def breakdown():
 	department_names = sorted(appropriations.keys())
 
 	return render_template(
-		'index.html',
+		'department.html',
 		department_names = department_names
 		)
 
