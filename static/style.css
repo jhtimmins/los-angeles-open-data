@@ -1,0 +1,113 @@
+body {
+	font-family: Roboto;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: normal;
+	margin: 0 !important;
+	height: 100vh;
+}
+
+#header {
+  width: 100%;
+  height: 64px;
+  border-color: #e8e8e8;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  padding-top: 20px;
+}
+
+#logo {
+	margin-left: 150px;
+	overflow: hidden;
+	text-align: center;
+}
+
+#la-seal {
+	float: left;
+	height: 40px;
+	width: 40px;
+}
+
+#title {
+	float: left;
+	margin-left: 4px;
+}
+
+#city-of-los-angeles {
+	float: left;
+	font-size: 18px;
+	font-weight: 500;
+	letter-spacing: 0.6px;
+}
+
+#open-budget {
+	width: 86px;
+	height: 16px;
+	opacity: 0.45;
+	font-size: 12px;
+	font-weight: normal;
+	letter-spacing: 0.5px;
+}
+
+#main {
+	margin-left: 10vw;
+	width: 80vw;
+}
+
+#budget-expense-breakdown {
+  font-family: Roboto;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.33;
+  text-align: center;
+  margin-top: 3%;
+}
+
+#title-divider-line {
+  width: 60px;
+  height: 2px;
+  background-color: #00aed0;
+  margin: auto;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+#department {
+	width: 100%;
+	height: 800px;
+}
+
+#department-chart {
+	height: 220px;
+	width: 46vw;
+	float: left;
+}
+
+#department-text {
+	width: 25vw;
+	height: 220px;
+	float: left;
+}
+
+#department-selector {
+	width: 100%;
+	margin-bottom: 18px;
+}
+
+#department-desc {
+	width: 100%;
+	border-radius: 3px;
+  	background-color: #f7f7f7;
+  	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 23px;
+}
+
+#tooltip {
+	background-color: green;
+	max-width: 18%;
+	visibility: hidden;
+
+}
+
+}

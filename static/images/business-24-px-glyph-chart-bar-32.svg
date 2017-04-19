@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="18px" viewBox="0 0 22 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>B80C00F1-E3AC-4F38-9DE5-412083DC12F2</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="dashboard" transform="translate(-799.000000, -33.000000)" fill-rule="nonzero" fill="#C6C6C6">
+            <g id="business-24px-glyph_chart-bar-32" transform="translate(799.000000, 33.000000)">
+                <g id="Group">
+                    <path d="M13,0 L9,0 C8.4,0 8,0.4 8,1 L8,17 C8,17.6 8.4,18 9,18 L13,18 C13.6,18 14,17.6 14,17 L14,1 C14,0.4 13.6,0 13,0 Z" id="Shape"></path>
+                    <path d="M5,10 L1,10 C0.4,10 0,10.4 0,11 L0,17 C0,17.6 0.4,18 1,18 L5,18 C5.6,18 6,17.6 6,17 L6,11 C6,10.4 5.6,10 5,10 Z" id="Shape"></path>
+                    <path d="M21,5 L17,5 C16.4,5 16,5.4 16,6 L16,17 C16,17.6 16.4,18 17,18 L21,18 C21.6,18 22,17.6 22,17 L22,6 C22,5.4 21.6,5 21,5 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
