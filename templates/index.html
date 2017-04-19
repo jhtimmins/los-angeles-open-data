@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+		<script src="{{ url_for('static', filename='breakdown.js') }}"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="https://d3js.org/d3.v4.min.js"></script>
+		<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+	</head>
+	<body>	
+	<div id="header">
+		<div id="logo">
+			<img id="la-seal" src="/static/images/seal-of-los-angeles-californiasvg@3x.png">
+			<div id="title">
+				<div id="city-of-los-angeles">City of Los Angeles</div>
+				<div id="open-budget">Open Budget</div>
+			</div>
+		</div>
+	</div>
+	<div id="main">
+		<div id="budget-expense-breakdown">
+		Budget Expense Breakdown by<br />
+		Department and Program
+		</div>
+		<div id="title-divider-line"></div>
+		<div id="department">
+			<div id="department-chart">
+				<svg width="600" height="400"></svg>
+			</div>
+			<div id="department-text-wrapper">
+				<div id="department-text">
+					<select id="department-selector">
+						{% for name in department_names %}
+							<option value="{{ name }}">{{ name }}</option>
+						{% endfor %}
+					</select>
+					<div id="department-desc">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="tooltip">
+		Bef. It's what's for the food time.
+	</div>
+	</body>
+</html>
+
+<script type="text/javascript">
+	$(function() {
+		breakdown = new Breakdown();
+		breakdown.init();
+	})
+</script>
