@@ -55,7 +55,7 @@ def import_appropriations():
 			department_name = row[1]
 			year = row[12]
 
-			if year <= 2013:
+			if year <= '2013':
 				continue
 			if not department_number.isdigit():
 				continue
