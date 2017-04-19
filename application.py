@@ -86,5 +86,9 @@ def department_data():
 
 	return json.dumps(department_data)
 
+@application.route('/mayor', methods=['GET'])
+def mayor():
+	return render_template('mayor.html')
+
 if __name__ == "__main__":
 	application.run()
