@@ -107,7 +107,64 @@ body {
 	background-color: green;
 	max-width: 18%;
 	visibility: hidden;
+}
 
+#mayor-main {
+	padding-top: 120px;
+	background-color: #f7f7f7;
+}
+
+#garcetti-profile-pic {
+	display: block;
+	margin: 0 auto;
+	/*margin-top: -55px;*/
+}
+
+#mayor-title {
+	margin: auto;
+	padding-top: 80px;
+	padding-bottom: 45px;
+	text-align: center;
+	font-size: 24px;
+  	font-weight: 500;
+  	line-height: 1.33;
+}
+
+#mayor-letter-wrapper {
+	width: 80%;
+	background-color: white;
+	margin: auto;
+	margin-bottom: 80px;
+	padding-bottom: 160px;
+	box-shadow: 0 9px 18px 0 rgba(0, 0, 0, 0.06);
+}
+
+#mayor-letter {
+	margin-left: 100px;
+	margin-right: 100px;
+	text-align: justify;
+	size: 18px;
+	line-height: 32px;
+}
+
+.letter-list-title {
+	font-size: 24px;
+  	font-weight: 500;
+  	line-height: 1.33;
+}
+
+.garcetti-job {
+	font-size: 18px;
+  	line-height: 1.78;
+}
+
+.garcetti-job-title {
+  	font-weight: bold;
+}
+
+#footer {
+	height: 400px;
+	background-color: black;
 }
 
 }
