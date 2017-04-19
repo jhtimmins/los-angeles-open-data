@@ -117,12 +117,10 @@ body {
 #garcetti-profile-pic {
 	display: block;
 	margin: 0 auto;
-	/*margin-top: -55px;*/
 }
 
 #mayor-title {
 	margin: auto;
-	padding-top: 80px;
 	padding-bottom: 45px;
 	text-align: center;
 	font-size: 24px;
@@ -135,6 +133,7 @@ body {
 	background-color: white;
 	margin: auto;
 	margin-bottom: 80px;
+	padding-top: 50px;
 	padding-bottom: 160px;
 	box-shadow: 0 9px 18px 0 rgba(0, 0, 0, 0.06);
 }
@@ -165,6 +164,4 @@ body {
 #footer {
 	height: 400px;
 	background-color: black;
-}
-
 }
