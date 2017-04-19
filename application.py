@@ -49,7 +49,7 @@ def format_approprations_for_graph(department):
 
 
 @application.route('/')
-def index():
+def home():
 	appropriations = get_appropriations() 
 	department_names = sorted(appropriations.keys())
 

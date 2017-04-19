@@ -16,15 +16,55 @@
 			</div>
 		</div>
 	</div>
-	<div id="main">
-		TACOS
+	<div class="image">
+		<img src="/static/images/la-small.jpg" alt="" />
+		<div class="text-over-image">Taquitoes</div>
+	</div>
+	<div class="main body-text">
+		<div class="home-total home-total-citywide">
+			$9.23B
+		</div>
+		<div class="home-total-citywide-label">
+			IN REVENUE AND EXPENSES
+		</div>
+		<div class="home-total-citywide-detail">
+			Key investments towards making LA prosperous, livable, safe, and well run include:
+		</div>
+		<div class="home-total-wrapper">
+			<div class="home-total">$176.6M</div>
+			<div class="home-total-detail">
+				to address homelessness
+			</div>
+		</div>
+		<div class="home-total-wrapper">
+			<div class="home-total">$30M</div>
+			<div class="home-total-detail">
+			to repair the city’s streets
+			</div>
+		</div>
+		<div class="home-total-wrapper">
+			<div class="home-total">$1M</div>
+			<div class="home-total-detail">
+			for a new Associate Community Officer Program (A-Cop) to bridge a gap in the LAPD officer recruitment pipeline and help reduce officer desk time
+			</div>
+		</div>
+		<div class="home-total-wrapper">
+			<div class="home-total">$70K</div>
+			<div class="home-total-detail">
+			to develop “Anytime-Anywhere Testing,” improving the City’s ability to recruit and test new candidates for City positions
+			</div>
+		</div>
+	</div>
+	<div class="main" id="nav-button-wrapper">
+		<form action="/departments">
+			<button type="submit" class="nav-button big-button">Expense Breakdown By Department</button>
+		</form>
+		<form action="/mayor">
+			<button type="submit" class="nav-button small-button left-button">Mayor's Budget Letter</button>
+		</form>
+		<form action="/">
+			<button type="submit" class="nav-button small-button right-button">Access All Data</button>
+		</form>
 	</div>
 	</body>
 </html>
-
-<script type="text/javascript">
-	$(function() {
-		breakdown = new Breakdown();
-		breakdown.init();
-	})
-</script>

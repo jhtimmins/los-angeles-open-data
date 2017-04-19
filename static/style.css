@@ -49,9 +49,99 @@ body {
 	letter-spacing: 0.5px;
 }
 
-#main {
+.main {
 	margin-left: 10vw;
 	width: 80vw;
+}
+
+.image {
+	position: relative;
+	max-width: 100vw;
+	max-height: 360px;
+}
+
+.body-text {
+	margin-top: 100px;
+	margin-bottom: 50px;
+	max-width: 600px;
+}
+
+.home-total {
+	font-size: 36px;
+	font-weight: bold;
+  	color: #00aed0;
+}
+
+.home-total-citywide {
+	font-size: 64px;
+	letter-spacing: 2.3px;
+}
+
+.home-total-specific {
+	margin-right: 45px;
+}
+
+.home-total-citywide-label {
+	font-size: 18px;
+  	font-weight: 500;
+  	line-height: 1.33;
+  	letter-spacing: 0.6px;
+  	color: #000000;
+}
+
+.home-total-citywide-detail {
+	max-width: 390px;
+	margin-top: 47px;
+	font-size: 18px;
+  	font-weight: 500;
+  	color: #000000;
+}
+
+.home-total-wrapper {
+	float: left;
+	margin-top: 26px;
+	margin-right: 45px;
+	width: 250px;
+}
+
+.text-over-image {
+ 	top: 50px;
+ 	left: 0;
+ 	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#nav-button-wrapper {
+	margin-top: 41px;
+	max-width: 359px;
+}
+
+.nav-button {
+	background-color: #00aed0;
+	height: 47px;
+	font-size: 14px;
+  	font-weight: bold;
+  	text-align: center;
+  	border-width: 0px;
+  	color: #ffffff;
+}
+
+.left-button {
+
+	float: left;
+	margin-right: 12px;
+}
+
+.small-button {
+	margin-top: 9px;
+	min-width: 70%;
+	max-width: 45%;
+}
+
+.big-button {
+	min-width: 100%;
+	margin-top: 50px;
 }
 
 #budget-expense-breakdown {
