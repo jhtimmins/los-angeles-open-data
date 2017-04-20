@@ -1,24 +1,11 @@
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
-		<script src="{{ url_for('static', filename='breakdown.js') }}"></script>
-	</head>
-	<body>	
-	<div id="header">
-		<div id="logo">
-			<img id="la-seal" src="/static/images/seal-of-los-angeles-californiasvg@3x.png">
-			<div id="title">
-				<div id="city-of-los-angeles">City of Los Angeles</div>
-				<div id="open-budget">Open Budget</div>
-			</div>
-		</div>
-	</div>
+{% extends "layout.html" %}
+
+{% block title %}Mayor - {% endblock %}
+
+{% block content %}
 	<div id="mayor-main">
 		<div id="mayor-letter-wrapper">
-			<img id="garcetti-profile-pic" src="/static/images/garcetti-profile-small.png">
+			<img id="garcetti-profile-pic" alt"Mayor Garcetti Headshot" src="/static/images/garcetti-profile-small.png">
 			<div id="mayor-title">
 				A Message from Mayor Eric Garcetti
 			</div>
@@ -84,7 +71,7 @@
 			<br>
 			Sincerely, 
 			<br>
-			<img id="garcetti-signature" src="/static/images/garcetti-signature-small.png">
+			<img id="garcetti-signature" alt="Mayor Garcett's Signature" src="/static/images/garcetti-signature-small.png">
 			<br>
 			<div class="garcetti-job">
 				<div class="garcetti-job-title">
@@ -95,7 +82,5 @@
 			</div>
 		</div>
 	</div>
-	<div id="footer">
-	</div>
-	</body>
-</html>
+	<div id="footer"></div>
+{% endblock %}
