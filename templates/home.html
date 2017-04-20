@@ -2,11 +2,11 @@
 
 {% block content %}
   	<div class="image">
-		<img src="/static/images/la-small.jpg" alt="" />
+		<img src="/static/images/la-small.jpg" alt="Los Angeles Skyline" />
 		<div class="text-over-image"></div>
 	</div>
-	<div>
-		<div class="main body-text">
+	<div class="main">
+		<div class="body-text">
 			<div class="home-total home-total-citywide">
 				$9.23B
 			</div>
@@ -40,20 +40,20 @@
 				to develop “Anytime-Anywhere Testing,” improving the City’s ability to recruit and test new candidates for City positions
 				</div>
 			</div>
+			<div id="nav-button-wrapper">
+				<form action="/departments">
+					<button type="submit" class="nav-button big-button">Expense Breakdown By Department</button>
+				</form>
+				<form action="/mayor">
+					<button type="submit" class="nav-button small-button left-button">Mayor's Budget Letter</button>
+				</form>
+				<form action="/">
+					<button type="submit" class="nav-button small-button right-button">Access All Data</button>
+				</form>
+			</div>
 		</div>
-		<div class="main" id="nav-button-wrapper">
-			<form action="/departments">
-				<button type="submit" class="nav-button big-button">Expense Breakdown By Department</button>
-			</form>
-			<form action="/mayor">
-				<button type="submit" class="nav-button small-button left-button">Mayor's Budget Letter</button>
-			</form>
-			<form action="/">
-				<button type="submit" class="nav-button small-button right-button">Access All Data</button>
-			</form>
+		<div class="priority-image-wrapper">
+			<img class="priority-image" src="/static/images/priority-breakdown.svg" />
 		</div>
-	</div>
-	<div>
-		<img class="Group-2" src="/static/images/priority-breakdown.svg">
 	</div>
 {% endblock %}

@@ -4,9 +4,11 @@
 
 {% block head %}
   {{ super() }}
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
   <script src="{{ url_for('static', filename='breakdown.js') }}"></script>
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -35,10 +37,6 @@
 			</div>
 		</div>
 	</div>
-	<div id="tooltip">
-		Bef. It's what's for the food time.
-	</div>
-	</body>
 {% endblock %}
 
 {% block scripts %}
