@@ -7,64 +7,69 @@
 		<script src="{{ url_for('static', filename='breakdown.js') }}"></script>
 	</head>
 	<body>	
-	<div id="header">
-		<div id="logo">
-			<img id="la-seal" src="/static/images/seal-of-los-angeles-californiasvg@3x.png">
-			<div id="title">
-				<div id="city-of-los-angeles">City of Los Angeles</div>
-				<div id="open-budget">Open Budget</div>
+		<div id="header">
+			<div id="logo">
+				<img id="la-seal" src="/static/images/seal-of-los-angeles-californiasvg@3x.png">
+				<div id="title">
+					<div id="city-of-los-angeles">City of Los Angeles</div>
+					<div id="open-budget">Open Budget</div>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="image">
-		<img src="/static/images/la-small.jpg" alt="" />
-		<div class="text-over-image"></div>
-	</div>
-	<div class="main body-text">
-		<div class="home-total home-total-citywide">
-			$9.23B
+		<div class="image">
+			<img src="/static/images/la-small.jpg" alt="" />
+			<div class="text-over-image"></div>
 		</div>
-		<div class="home-total-citywide-label">
-			IN REVENUE AND EXPENSES
-		</div>
-		<div class="home-total-citywide-detail">
-			Key investments towards making LA prosperous, livable, safe, and well run include:
-		</div>
-		<div class="home-total-wrapper">
-			<div class="home-total">$176.6M</div>
-			<div class="home-total-detail">
-				to address homelessness
+		<div>
+			<div class="main body-text">
+				<div class="home-total home-total-citywide">
+					$9.23B
+				</div>
+				<div class="home-total-citywide-label">
+					IN REVENUE AND EXPENSES
+				</div>
+				<div class="home-total-citywide-detail">
+					Key investments towards making LA prosperous, livable, safe, and well run include:
+				</div>
+				<div class="home-total-wrapper">
+					<div class="home-total">$176.6M</div>
+					<div class="home-total-detail">
+						to address homelessness
+					</div>
+				</div>
+				<div class="home-total-wrapper">
+					<div class="home-total">$30M</div>
+					<div class="home-total-detail">
+					to repair the city’s streets
+					</div>
+				</div>
+				<div class="home-total-wrapper">
+					<div class="home-total">$1M</div>
+					<div class="home-total-detail">
+					for a new Associate Community Officer Program (A-Cop) to bridge a gap in the LAPD officer recruitment pipeline and help reduce officer desk time
+					</div>
+				</div>
+				<div class="home-total-wrapper">
+					<div class="home-total">$70K</div>
+					<div class="home-total-detail">
+					to develop “Anytime-Anywhere Testing,” improving the City’s ability to recruit and test new candidates for City positions
+					</div>
+				</div>
+			</div>
+			<div class="main" id="nav-button-wrapper">
+				<form action="/departments">
+					<button type="submit" class="nav-button big-button">Expense Breakdown By Department</button>
+				</form>
+				<form action="/mayor">
+					<button type="submit" class="nav-button small-button left-button">Mayor's Budget Letter</button>
+				</form>
+				<form action="/">
+					<button type="submit" class="nav-button small-button right-button">Access All Data</button>
+				</form>
 			</div>
 		</div>
-		<div class="home-total-wrapper">
-			<div class="home-total">$30M</div>
-			<div class="home-total-detail">
-			to repair the city’s streets
-			</div>
+		<div>
+			<img class="Group-2" src="/static/images/priority-breakdown.svg">
 		</div>
-		<div class="home-total-wrapper">
-			<div class="home-total">$1M</div>
-			<div class="home-total-detail">
-			for a new Associate Community Officer Program (A-Cop) to bridge a gap in the LAPD officer recruitment pipeline and help reduce officer desk time
-			</div>
-		</div>
-		<div class="home-total-wrapper">
-			<div class="home-total">$70K</div>
-			<div class="home-total-detail">
-			to develop “Anytime-Anywhere Testing,” improving the City’s ability to recruit and test new candidates for City positions
-			</div>
-		</div>
-	</div>
-	<div class="main" id="nav-button-wrapper">
-		<form action="/departments">
-			<button type="submit" class="nav-button big-button">Expense Breakdown By Department</button>
-		</form>
-		<form action="/mayor">
-			<button type="submit" class="nav-button small-button left-button">Mayor's Budget Letter</button>
-		</form>
-		<form action="/">
-			<button type="submit" class="nav-button small-button right-button">Access All Data</button>
-		</form>
-	</div>
 	</body>
 </html>

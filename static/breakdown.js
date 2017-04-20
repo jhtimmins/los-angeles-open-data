@@ -26,7 +26,7 @@ class Breakdown {
 		var that = this;
 		$.post('/department', {name: department}, function(json_data) {
 			var data = JSON.parse(json_data)
-
+			console.log(data);
 			that.department = data.department;
 			that.appropriations = data.appropriations;
 			that.programs = data.department.programs;
@@ -42,7 +42,7 @@ class Breakdown {
 	{
 		var that = this;
 		$(".layer").mouseover(function(event) {
-			that.populateDesc(that.programs[$(this).text()])
+			that.populateDesc(that.programs[$(this).text()], $(this).text())
 			//console.log(event.pageX);
 			//console.log(event.pageY);
 		});
@@ -52,9 +52,14 @@ class Breakdown {
 		})
 	}
 
-	populateDesc(org)
-	{
-		$("#department-desc").text(org.description);
+	populateDesc(org_data, org_name = false)
+	{	
+		$("#department-desc").text(org_data.description);
+		if (org_name) {
+			$("#department-name").text(org_name);
+		} else {
+			$("#department-name").empty();
+		}
 	}
 
 	buildChart(appropriations_data)
@@ -92,18 +97,17 @@ class Breakdown {
 	  var years = appropriations_data.years.map(function(key, i) {
 	  	return new Date(key, 0, 1);
 	  });
-	  console.log(this.getYDomain(appropriations_data.max_appropriated));
-	  x.domain(d3.extent(years));
+	  x.domain([new Date(2014, 0, 1), new Date(2018, 0, 1)]);
 	  y.domain([0, this.getYDomain(appropriations_data.max_appropriated)]);
 	  z.domain(appropriations_data.program_names);
 		
 	  data = data.map(function(key, index) {
-	  	for (var i = 0; i < appropriations_data.program_names.length; i++) {
-	  		var name = appropriations_data.program_names[i];
-	  		if (!key[name]) {
-	  			key[name] = 0;
-	  		}
-	  	}
+		for (var i = 0; i < appropriations_data.program_names.length; i++) {
+			var name = appropriations_data.program_names[i];
+			if (!key[name]) {
+				key[name] = 0;
+			}
+		}
 	  	
 	  	return key;
 	  }); 
@@ -136,7 +140,7 @@ class Breakdown {
 	  .attr("class", "axis axis--y")
 	  .call(d3.axisLeft(y).tickFormat(function(d) {
 	  	if (d / 1000000.0) {
-	  		return "$" + d / 1000000.0 + "mm";
+	  		return "$" + d / 1000000.0 + "M";
 	  	}
 	  	return "$" + d
 	  }));

@@ -116,6 +116,11 @@ body {
 	margin-top: 41px;
 	max-width: 359px;
 }
+.Group-2 {
+  width: 551px;
+  height: 539px;
+  object-fit: contain;
+}
 
 .nav-button {
 	background-color: #00aed0;
@@ -125,6 +130,7 @@ body {
   	text-align: center;
   	border-width: 0px;
   	color: #ffffff;
+  	cursor: pointer;
 }
 
 .left-button {
@@ -184,13 +190,18 @@ body {
 	margin-bottom: 18px;
 }
 
-#department-desc {
+#department-desc-wrapper {
 	width: 100%;
 	border-radius: 3px;
   	background-color: #f7f7f7;
   	padding-left: 15px;
 	padding-right: 15px;
-	padding-top: 23px;
+	padding-top: 16px;
+	padding-bottom: 15px;
+}
+
+#department-name {
+	margin-bottom: 10px;
 }
 
 #tooltip {

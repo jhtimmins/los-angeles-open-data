@@ -1,4 +1,5 @@
 from flask import Flask
+from flask import redirect
 from flask import render_template
 from flask import request
 from flask_sqlalchemy import SQLAlchemy
@@ -26,18 +27,21 @@ def get_max_appropriated(appropriations):
 
 def format_approprations_for_graph(department):
 	program_names = set()
-	years = []
-	appropriations = {}
+	years = ['2014', '2015', '2016', '2017', '2018']
+	appropriations = {
+		'2014': {'date': '2014'},
+		'2015': {'date': '2015'},
+		'2016': {'date': '2016'},
+		'2017': {'date': '2017'},
+		'2018': {'date': '2018'},
+	}
 
 	for program_name, program in department['programs'].iteritems():
-		# print program
-		 for year, amount in program['years'].iteritems():
-		 	if year not in years:
-		 		years.append(year)
-		 		appropriations[year] = {'date': year}
+		 for year in years:
 		 	if program_name not in appropriations[year]:
 		 		program_names.add(program_name)
 		 		appropriations[year][program_name] = 0
+		 for year, amount in program['years'].iteritems():
 		 	appropriations[year][program_name] += int(amount)
 
 	return {
@@ -47,8 +51,7 @@ def format_approprations_for_graph(department):
 			'max_appropriated': get_max_appropriated(appropriations)
 		}
 
-
-@application.route('/')
+@application.route("/")
 def home():
 	appropriations = get_appropriations() 
 	department_names = sorted(appropriations.keys())
@@ -89,6 +92,10 @@ def department_data():
 @application.route('/mayor', methods=['GET'])
 def mayor():
 	return render_template('mayor.html')
+
+@application.route("/<path:dummy>")
+def catch_all(dummy):
+	return redirect("/")
 
 if __name__ == "__main__":
 	application.run()
