@@ -304,6 +304,12 @@ body {
   	line-height: 1.33;
 }
 
+.letter-list-header {
+	font-size: 24px;
+  	font-weight: 500;
+  	line-height: 1.33;
+}
+
 .garcetti-job {
 	font-size: 18px;
   	line-height: 1.78;
