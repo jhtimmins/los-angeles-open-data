@@ -71,13 +71,13 @@ class Breakdown {
 			},
 			content: function() {
 				var name = $(this).context.dataset.name,
-				this_year = that.programs[name].years[2018],
-				last_year = that.programs[name].years[2017],
-				change = this_year - last_year,
+				years = that.programs[name].years,
+				this_year = years[2018] ? years[2018] : 0,
+				last_year = years[2017] ? years[2017] : 0,
 				up_arrow = '<div class="up-arrow">&#x25B2</div>',
-				down_arrow = '<div class="down-arrow">&#x25BC</div>',				
-				icon = change >= 0 ? up_arrow : down_arrow
-				
+				down_arrow = '<div class="down-arrow">&#x25BC</div>',
+				change = this_year - last_year,
+				icon = change >= 0 ? up_arrow : down_arrow;
 
 				return 	'<div class="tooltip-wrapper">' + 
 						'<div class="tooltip-text-big">$' + this_year.toLocaleString('en-US') + '</div>' +
