@@ -77,7 +77,8 @@ class Breakdown {
 				change = this_year - last_year,
 				icon = change >= 0 ? up_arrow : down_arrow;
 
-				return 	'<div class="tooltip-wrapper">' + 
+				return 	'<div class="tooltip-wrapper">' +
+						'<div class="tooltip-name">' + name +'</div>' +  
 						'<div class="tooltip-text-big">$' + this_year.toLocaleString('en-US') + '</div>' +
 						'<div class="tooltip-text-small">Fiscal Year 2017-2018</div>' +
 						'<div class="tooltip-text-big">$' + change.toLocaleString('en-US') + icon + '</div>' +
@@ -122,57 +123,59 @@ class Breakdown {
 		    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 		  
-	  var data = Object.keys(appropriations_data.appropriations).map(function(key, index) {
-	  	var row = appropriations_data.appropriations[key]
-	  	row.date = new Date(key, 0, 1);
+		var data = Object.keys(appropriations_data.appropriations).map(function(key, index) {
+			var row = appropriations_data.appropriations[key]
+			row.date = new Date(key, 0, 1);
 
-	  	return row
-	  });
-	  
-	  var years = appropriations_data.years.map(function(key, i) {
-	  	return new Date(key, 0, 1);
-	  });
-	  x.domain([new Date(2014, 0, 1), new Date(2018, 0, 1)]);
-	  y.domain([0, this.getYDomain(appropriations_data.max_appropriated)]);
-	  z.domain(appropriations_data.program_names);
-		
-	  data = data.map(function(key, index) {
+			return row
+		});
+
+		var years = appropriations_data.years.map(function(key, i) {
+			return new Date(key, 0, 1);
+		});
+		x.domain([new Date(2014, 0, 1), new Date(2018, 0, 1)]);
+		y.domain([0, this.getYDomain(appropriations_data.max_appropriated)]);
+		z.domain(appropriations_data.program_names);
+
+		data = data.map(function(key, index) {
 		for (var i = 0; i < appropriations_data.program_names.length; i++) {
 			var name = appropriations_data.program_names[i];
 			if (!key[name]) {
 				key[name] = 0;
 			}
 		}
-	  	
-	  	return key;
-	  }); 
+			
+			return key;
+		}); 
 
-	  var layer = g.selectAll(".layer").data(stack(data))
-  		.enter().append("g")
-	      .attr("class", "layer")
-	      .attr("data-name", function(d) { return d.key })
+		var layer = g.selectAll(".layer").data(stack(data))
+			.enter().append("g")
+		  .attr("class", "layer")
+		  .attr("data-name", function(d) { return d.key })
 
-	  layer.append("path")
-	      .attr("class", "area")
-	      .style("fill", function(d) { return z(d.key); })
-	      .attr("d", area);
+		layer.append("path")
+		  .attr("class", "area")
+		  .style("fill", function(d) { return z(d.key); })
+		  .attr("d", area);
 
-	  layer.attr("data-name", function(d) { return d.key; })
-	      .attr("title", function(d) { return d.key; });
+		layer.attr("data-name", function(d) { return d.key; })
+		  .attr("title", function(d) { return d.key; });
 
-	  g.append("g")
-	      .attr("class", "axis axis--x")
-	      .attr("transform", "translate(0," + height + ")")
-	      .call(d3.axisBottom(x).ticks(d3.timeYear));
+		g.append("g")
+		  .attr("class", "axis axis--x")
+		  .attr("transform", "translate(0," + height + ")")
+		  .call(d3.axisBottom(x).ticks(d3.timeYear));
 
-	  g.append("g")
-	  .attr("class", "axis axis--y")
-	  .call(d3.axisLeft(y).tickFormat(function(d) {
-	  	if (d / 1000000.0) {
-	  		return "$" + d / 1000000.0 + "M";
-	  	}
-	  	return "$" + d
-	  }));
+		g.append("g")
+		.attr("class", "axis axis--y")
+		.call(d3.axisLeft(y).tickArguments([10]).tickFormat(function(d) {
+			if (d / 1000000.0) {
+				return "$" + d / 1000000.0 + "M";
+			}
+			return "$" + d
+		}));
+		$(".domain").remove();
+		$(".tick line").remove();
 	}
 
 	getYDomain(max_app, max_graph = 0, upper = 1000000000)
