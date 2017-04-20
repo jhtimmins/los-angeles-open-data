@@ -53,7 +53,7 @@ def format_approprations_for_graph(department):
 		}
 
 def has_time_threshold_passed():
-	return true;
+	return True;
 
 @application.route("/")
 def home():
