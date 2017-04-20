@@ -18,13 +18,15 @@ class Base {
 		})
 
 		$(window).resize(function() {
-			that.handleWidth();
+			that.handleWidthDepartment();
+			that.handleWidthHome();
 		})
 
-		this.handleWidth();
+		this.handleWidthDepartment();
+		this.handleWidthHome();
 	}
 
-	handleWidth()
+	handleWidthDepartment()
 	{
 		var width = $(window).width();
 		if (width < 800) {
@@ -50,6 +52,28 @@ class Base {
 			$("#chart-svg").attr(
 				{
 					"width": width * 0.48,
+				}
+			);
+		}
+	}
+
+	handleWidthHome()
+	{
+		var width = $(window).width();
+		if (width < 1100) {
+			$(".priority-image-wrapper").attr({
+				"margin-top": "0"
+			})
+			$(".priority-image").attr(
+				{
+					"margin-top": 0,
+					"width": (width) * 0.8,
+				}
+			);
+		} else {
+			$(".priority-image").attr(
+				{
+					"width": (width - 800) * 0.8,
 				}
 			);
 		}
