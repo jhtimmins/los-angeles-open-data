@@ -20,6 +20,7 @@ body {
 	margin-left: 150px;
 	overflow: hidden;
 	text-align: center;
+	cursor: pointer;
 }
 
 #la-seal {
