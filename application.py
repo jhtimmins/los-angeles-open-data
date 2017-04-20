@@ -4,6 +4,7 @@ from flask import render_template
 from flask import request
 from flask_sqlalchemy import SQLAlchemy
 import json
+import time
 
 application = Flask(__name__)
 application.config.from_pyfile('config.py')
@@ -51,14 +52,24 @@ def format_approprations_for_graph(department):
 			'max_appropriated': get_max_appropriated(appropriations)
 		}
 
+def has_time_threshold_passed():
+	threshold_unix_time = 1492718400 # 1pm pacific time 2017/4/20
+	return time.time() >= threshold_unix_time
+
+
 @application.route("/")
 def home():
 	appropriations = get_appropriations() 
 	department_names = sorted(appropriations.keys())
 
-	return render_template(
-		'home.html',
-		department_names = department_names
+	if has_time_threshold_passed():
+		return render_template(
+			'home.html',
+			department_names = department_names
+		)
+	else:
+		return render_template(
+			'countdown.html'
 		)
 
 @application.route('/departments', methods=['GET'])
@@ -66,9 +77,14 @@ def breakdown():
 	appropriations = get_appropriations() 
 	department_names = sorted(appropriations.keys())
 
-	return render_template(
-		'department.html',
-		department_names = department_names
+	if has_time_threshold_passed():
+		return render_template(
+			'department.html',
+			department_names = department_names
+		)
+	else:
+		return render_template(
+			'countdown.html'
 		)
 
 @application.route('/department', methods=['POST'])
@@ -89,15 +105,27 @@ def department_data():
 		'appropriations': format_approprations_for_graph(department)
 	}
 
-	return json.dumps(department_data)
+	if has_time_threshold_passed():
+		return json.dumps(department_data)
+	else:
+		return render_template(
+			'countdown.html'
+		)
+	
 
 @application.route('/mayor', methods=['GET'])
 def mayor():
-	return render_template('mayor.html')
+	if has_time_threshold_passed():
+		return render_template('mayor.html')
+	else:
+		return render_template('countdown.html')
 
 @application.route("/<path:dummy>")
 def catch_all(dummy):
-	return redirect("/")
+	if has_time_threshold_passed():
+		return redirect("/")
+	else:
+		return render_template('countdown.html')
 
 if __name__ == "__main__":
 	application.run()
