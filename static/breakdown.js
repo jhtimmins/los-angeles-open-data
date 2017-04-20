@@ -8,9 +8,7 @@ class Breakdown {
 
 	init() {
 		this.addSelectHandlers();
-		//var department = JSON.parse(appropriations);
 		this.getData();
-		//this.buildChart(appropriations);
 	}
 
 	addSelectHandlers()
