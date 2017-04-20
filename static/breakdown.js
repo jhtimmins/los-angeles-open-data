@@ -61,7 +61,7 @@ class Breakdown {
 	{
 		console.log(appropriations_data);
 		var svg = d3.select("svg"),
-		    margin = {top: 0, right: 20, bottom: 30, left: 50},
+		    margin = {top: 20, right: 20, bottom: 30, left: 70},
 		    width = svg.attr("width") - margin.left - margin.right,
 		    height = svg.attr("height") - margin.top - margin.bottom;
 
@@ -92,17 +92,15 @@ class Breakdown {
 	  var years = appropriations_data.years.map(function(key, i) {
 	  	return new Date(key, 0, 1);
 	  });
-	  
+	  console.log(this.getYDomain(appropriations_data.max_appropriated));
 	  x.domain(d3.extent(years));
+	  y.domain([0, this.getYDomain(appropriations_data.max_appropriated)]);
 	  z.domain(appropriations_data.program_names);
 		
 	  data = data.map(function(key, index) {
 	  	for (var i = 0; i < appropriations_data.program_names.length; i++) {
 	  		var name = appropriations_data.program_names[i];
-	  		if (key[name]) {
-	  			console.log(key[name]);
-				key[name] = key[name] * 1.0 / appropriations_data.max_appropriated
-	  		} else {
+	  		if (!key[name]) {
 	  			key[name] = 0;
 	  		}
 	  	}
@@ -118,7 +116,7 @@ class Breakdown {
 	  layer.append("path")
 	      .attr("class", "area")
 	      .style("fill", function(d) { return z(d.key); })
-	      .attr("d", area)
+	      .attr("d", area);
 
 	  layer.filter(function(d) { return d[d.length - 1][1] - d[d.length - 1][0] > 0.1; })
 	    .append("text")
@@ -135,7 +133,24 @@ class Breakdown {
 	      .call(d3.axisBottom(x).ticks(d3.timeYear));
 
 	  g.append("g")
-	      .attr("class", "axis axis--y")
-	      .call(d3.axisLeft(y).ticks(10, ""));
+	  .attr("class", "axis axis--y")
+	  .call(d3.axisLeft(y).tickFormat(function(d) {
+	  	if (d / 1000000.0) {
+	  		return "$" + d / 1000000.0 + "mm";
+	  	}
+	  	return "$" + d
+	  }));
+	}
+
+	getYDomain(max_app, max_graph = 0, upper = 1000000000)
+	{
+		var step = upper * 0.1;
+		if (max_graph > max_app) {
+			return max_graph;
+		} else if (max_app < step) {
+			return this.getYDomain(max_app, max_graph, step)
+		} else {
+			return this.getYDomain(max_app, max_graph + step, upper);
+		}
 	}
 }
