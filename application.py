@@ -53,7 +53,7 @@ def format_approprations_for_graph(department):
 		}
 
 def has_time_threshold_passed():
-	threshold_unix_time = 1492718400 # 1pm pacific time 2017/4/20
+	threshold_unix_time = 1492718400 + 1800# 1pm pacific time 2017/4/20
 	return time.time() >= threshold_unix_time
 
 
