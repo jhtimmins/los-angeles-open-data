@@ -1,26 +1,24 @@
-class Breakdown {
+var Breakdown = {
 
-	constructor() {
-		this.department = null;
-		this.appropriations = null;
-		this.department_name = null;
-		this.programs = null;
-	}
+	department: null,
+	appropriations: null,
+	department_name: null,
+	programs: null,
 
-	init() {
+	init: function() {
 		this.addSelectHandlers();
 		this.getData();
-	}
+	},
 
-	addSelectHandlers()
+	addSelectHandlers: function()
 	{	
 		var that = this;
 		$("#department-selector").on("change", function() {
 			 that.getData($(this).val());
 		});
-	}
+	},
 
-	getData(department=false)
+	getData: function(department=false)
 	{
 		var that = this;
 		$.post('/department', {name: department}, function(json_data) {
@@ -34,14 +32,18 @@ class Breakdown {
 			that.buildChart(data.appropriations);
 			that.addHoverHandlers(data.department.programs);
 		});
-		
-	}
+	},
 
-	addHoverHandlers()
+	addHoverHandlers: function()
 	{
 		var that = this;
 		$(".layer").mouseover(function(event) {
-			var name = $(this).context.dataset.name;
+			var name;
+			try {
+				name = $(this).context.dataset.name;
+			} catch(err) {
+				name = $(this).data('name');
+			}
 			that.populateDesc(that.programs[name], name)
 		});
 
@@ -50,9 +52,9 @@ class Breakdown {
 		})
 
 		that.setTooltip();
-	}
+	},
 
-	setTooltip()
+	setTooltip: function()
 	{
 		var that = this;
 
@@ -69,8 +71,14 @@ class Breakdown {
 				"ui-tooltip-content": "custom-tooltip-style"
 			},
 			content: function() {
-				var name = $(this).context.dataset.name,
-				years = that.programs[name].years,
+				var name;
+				try {
+					name = $(this).context.dataset.name;
+				} catch(err) {
+					name = $(this).data('name');
+				}
+
+				var years = that.programs[name].years,
 				this_year = years[2018] ? years[2018] : 0,
 				last_year = years[2017] ? years[2017] : 0,
 				up_arrow = '<div class="up-arrow">&#x25B2</div>',
@@ -96,9 +104,9 @@ class Breakdown {
 						'</div>';
 			}
 		});
-	}
+	},
 
-	populateDesc(org_data, org_name = false)
+	populateDesc: function(org_data, org_name = false)
 	{	
 		$("#department-desc").text(org_data.description);
 		if (org_name) {
@@ -106,9 +114,9 @@ class Breakdown {
 		} else {
 			$("#department-name").empty();
 		}
-	}
+	},
 
-	buildChart(appropriations_data)
+	buildChart: function(appropriations_data)
 	{
 		var svg = d3.select("svg"),
 		    margin = {top: 20, right: 20, bottom: 30, left: 70},
@@ -185,9 +193,9 @@ class Breakdown {
 		}));
 		$(".domain").remove();
 		$(".tick line").remove();
-	}
+	},
 
-	getYDomain(max_app, max_graph = 0, upper = 1000000000)
+	getYDomain: function(max_app, max_graph = 0, upper = 1000000000)
 	{
 		var step = upper * 0.1;
 		if (max_graph > max_app) {

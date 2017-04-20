@@ -1,5 +1,5 @@
-class Base {
-	init() {
+var Base = {
+	init: function() {
 		var that = this
 		$("#logo").on("click", function() {
 			window.location = '/';
@@ -24,9 +24,9 @@ class Base {
 
 		this.handleWidthDepartment();
 		this.handleWidthHome();
-	}
+	},
 
-	handleWidthDepartment()
+	handleWidthDepartment: function()
 	{
 		var width = $(window).width();
 		if (width < 800) {
@@ -55,9 +55,9 @@ class Base {
 				}
 			);
 		}
-	}
+	},
 
-	handleWidthHome()
+	handleWidthHome: function()
 	{
 		var width = $(window).width();
 		if (width < 1100) {
