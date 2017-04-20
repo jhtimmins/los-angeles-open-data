@@ -20,7 +20,7 @@ var Base = {
 		$(window).resize(function() {
 			that.handleWidthDepartment();
 			that.handleWidthHome();
-		})
+		});
 
 		this.handleWidthDepartment();
 		this.handleWidthHome();
