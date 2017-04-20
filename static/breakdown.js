@@ -3,6 +3,7 @@ class Breakdown {
 	constructor() {
 		this.department = null;
 		this.appropriations = null;
+		this.department_name = null;
 		this.programs = null;
 	}
 
@@ -25,11 +26,12 @@ class Breakdown {
 		$.post('/department', {name: department}, function(json_data) {
 			var data = JSON.parse(json_data)
 			that.department = data.department;
+			that.department_name = data.department_name;
 			that.appropriations = data.appropriations;
 			that.programs = data.department.programs;
 
+			that.populateDesc(data.department, data.department_name);
 			that.buildChart(data.appropriations);
-			that.populateDesc(data.department);
 			that.addHoverHandlers(data.department.programs);
 		});
 		
@@ -44,7 +46,7 @@ class Breakdown {
 		});
 
 		$("svg").mouseout(function() {
-			that.populateDesc(that.department)
+			that.populateDesc(that.department, that.department_name)
 		})
 
 		that.setTooltip();
@@ -100,7 +102,6 @@ class Breakdown {
 
 	buildChart(appropriations_data)
 	{
-		console.log(appropriations_data);
 		var svg = d3.select("svg"),
 		    margin = {top: 20, right: 20, bottom: 30, left: 70},
 		    width = svg.attr("width") - margin.left - margin.right,
