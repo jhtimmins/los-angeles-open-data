@@ -143,15 +143,16 @@ body {
 }
 
 .left-button {
-
 	float: left;
-	margin-right: 12px;
+}
+
+.right-button {
+	float: right;
 }
 
 .small-button {
 	margin-top: 9px;
-	min-width: 70%;
-	max-width: 45%;
+	width: 48.5%;
 }
 
 .big-button {
