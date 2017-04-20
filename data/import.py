@@ -86,7 +86,7 @@ def import_appropriations():
 			if year not in departments[department_name]['programs'][program_name]['years']:
 				departments[department_name]['programs'][program_name]['years'][year] = 0
 			
-			departments[department_name]['programs'][program_name]['years'][year] += int(amount)
+			departments[department_name]['programs'][program_name]['years'][year] += int(float(amount))
 
 	return departments
 
