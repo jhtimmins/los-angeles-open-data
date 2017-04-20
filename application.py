@@ -79,11 +79,13 @@ def department_data():
 	name = request.values.get('name', None)
 	department = appropriations.get(name, None)
 	if not department:
-		department = appropriations.get('Aging')
+		name = 'Aging'
+		department = appropriations.get(name)
 
 	department_data = {
 		'department_names': department_names,
 		'department': department,
+		'department_name': name,
 		'appropriations': format_approprations_for_graph(department)
 	}
 

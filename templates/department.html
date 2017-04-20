@@ -23,16 +23,14 @@
 				<svg width="670" height="400"></svg>
 			</div>
 			<div id="department-text-wrapper">
-				<div id="department-text">
-					<select id="department-selector">
-						{% for name in department_names %}
-							<option value="{{ name }}">{{ name }}</option>
-						{% endfor %}
-					</select>
-					<div id="department-desc-wrapper">
-						<div id="department-name"></div>
-						<div id="department-desc"></div>
-					</div>
+				<select id="department-selector">
+					{% for name in department_names %}
+						<option value="{{ name }}">{{ name }}</option>
+					{% endfor %}
+				</select>
+				<div id="department-desc-wrapper">
+					<div id="department-name"></div>
+					<div id="department-desc"></div>
 				</div>
 			</div>
 		</div>

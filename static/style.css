@@ -221,11 +221,7 @@ body {
 	margin-right: 5vw;
 }
 
-.tick {
-	color: red;
-}
-
-#department-text {
+#department-text-wrapper {
 	width: 25vw;
 	height: 220px;
 	float: left;
@@ -238,7 +234,6 @@ body {
 	border-color: #f7f7f7;
   	background-color: #f7f7f7;
 	margin-bottom: 18px;
-	overflow: hidden;
 	font-size: 14px;
   	font-weight: 500;
   	line-height: 1.43;
@@ -247,17 +242,23 @@ body {
 }
 
 #department-desc-wrapper {
-	width: 100%;
 	border-radius: 3px;
   	background-color: #f7f7f7;
   	padding-left: 15px;
 	padding-right: 15px;
 	padding-top: 16px;
 	padding-bottom: 15px;
+	font-size: 12px;
+  	line-height: 1.75;
 }
 
 #department-name {
 	margin-bottom: 10px;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 1.43;
+	text-align: left;
+	color: #2d2d2d;
 }
 
 #mayor-main {
