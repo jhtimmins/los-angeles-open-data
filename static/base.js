@@ -1,5 +1,6 @@
 class Base {
 	init() {
+		var that = this
 		$("#logo").on("click", function() {
 			window.location = '/';
 		})
@@ -14,6 +15,10 @@ class Base {
 
 		$("#data").on("click", function() {
 			window.location = 'https://data.lacity.org/browse?q=budget&sortBy=relevance&utf8=%E2%9C%93';
+		})
+
+		$(window).resize(function() {
+			that.handleWidth();
 		})
 
 		this.handleWidth();
@@ -38,6 +43,8 @@ class Base {
 		} else {
 			$("#department-text-wrapper").css({
 				"width": width * 0.25,
+				"margin-top": 0,
+				"float": "left"
 				}
 			);
 			$("#chart-svg").attr(
