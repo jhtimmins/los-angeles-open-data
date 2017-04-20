@@ -9,7 +9,7 @@ class Breakdown {
 	init() {
 		this.addSelectHandlers();
 		//var department = JSON.parse(appropriations);
-		this.getData()
+		this.getData();
 		//this.buildChart(appropriations);
 	}
 
@@ -26,7 +26,6 @@ class Breakdown {
 		var that = this;
 		$.post('/department', {name: department}, function(json_data) {
 			var data = JSON.parse(json_data)
-			console.log(data);
 			that.department = data.department;
 			that.appropriations = data.appropriations;
 			that.programs = data.department.programs;
@@ -42,14 +41,52 @@ class Breakdown {
 	{
 		var that = this;
 		$(".layer").mouseover(function(event) {
-			that.populateDesc(that.programs[$(this).text()], $(this).text())
-			//console.log(event.pageX);
-			//console.log(event.pageY);
+			var name = $(this).context.dataset.name;
+			that.populateDesc(that.programs[name], name)
 		});
 
 		$("svg").mouseout(function() {
 			that.populateDesc(that.department)
 		})
+
+		that.setTooltip();
+
+	}
+
+	setTooltip()
+	{
+		var that = this;
+
+		$(".layer").tooltip({
+			track: true,
+			show: {
+				boolean: false
+			},
+			hide: {
+				boolean: false
+			},
+			classes: {
+				"ui-tooltip": "custom-tooltip-style",
+				"ui-tooltip-content": "custom-tooltip-style"
+			},
+			content: function() {
+				var name = $(this).context.dataset.name,
+				this_year = that.programs[name].years[2018],
+				last_year = that.programs[name].years[2017],
+				change = this_year - last_year,
+				up_arrow = '<div class="up-arrow">&#x25B2</div>',
+				down_arrow = '<div class="down-arrow">&#x25BC</div>',				
+				icon = change >= 0 ? up_arrow : down_arrow
+				
+
+				return 	'<div class="tooltip-wrapper">' + 
+						'<div class="tooltip-text-big">$' + this_year.toLocaleString('en-US') + '</div>' +
+						'<div class="tooltip-text-small">Fiscal Year 2017-2018</div>' +
+						'<div class="tooltip-text-big">$' + change.toLocaleString('en-US') + icon + '</div>' +
+						'<div class="tooltip-text-small">From Previous Year</div>' +
+						'</div>';
+			}
+		});
 	}
 
 	populateDesc(org_data, org_name = false)
@@ -122,14 +159,8 @@ class Breakdown {
 	      .style("fill", function(d) { return z(d.key); })
 	      .attr("d", area);
 
-	  layer.filter(function(d) { return d[d.length - 1][1] - d[d.length - 1][0] > 0.1; })
-	    .append("text")
-	      .attr("x", width - 6)
-	      .attr("y", function(d) { return y((d[d.length - 1][0] + d[d.length - 1][1]) / 2); })
-	      .attr("dy", ".350em")
-	      .style("font", "10px sans-serif")
-	      .style("text-anchor", "end")
-	      .text(function(d) { return d.key; });
+	  layer.attr("data-name", function(d) { return d.key; })
+	      .attr("title", function(d) { return d.key; });
 
 	  g.append("g")
 	      .attr("class", "axis axis--x")

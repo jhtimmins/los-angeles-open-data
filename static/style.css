@@ -14,6 +14,7 @@ body {
   border-bottom-style: solid;
   border-bottom-width: 1px;
   padding-top: 20px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
 }
 
 #logo {
@@ -65,6 +66,7 @@ body {
 	margin-top: 100px;
 	margin-bottom: 50px;
 	max-width: 600px;
+	float: left;
 }
 
 .home-total {
@@ -117,10 +119,16 @@ body {
 	margin-top: 41px;
 	max-width: 359px;
 }
-.Group-2 {
-  width: 551px;
-  height: 539px;
-  object-fit: contain;
+.priority-image {
+	max-width: 100%;
+	height: auto;
+	object-fit: contain;
+	viewBox="0 0 300 185"
+}
+
+.priority-image-wrapper {
+	float: left;
+	margin-top: 100px;	
 }
 
 .nav-button {
@@ -205,12 +213,6 @@ body {
 	margin-bottom: 10px;
 }
 
-#tooltip {
-	background-color: green;
-	max-width: 18%;
-	visibility: hidden;
-}
-
 #mayor-main {
 	padding-top: 120px;
 	background-color: #f7f7f7;
@@ -261,6 +263,38 @@ body {
 
 .garcetti-job-title {
   	font-weight: bold;
+}
+
+.up-arrow {
+	color: #2cbeb0;
+	float: left;
+}
+
+.down-arrow {
+	color: #df4c4c;
+	float: left;
+}
+
+.tooltip-wrapper {
+	width: auto;
+	padding-top: 16px;
+	padding-left: 23px;
+	padding-bottom: 16px;
+}
+
+.tooltip-text-big {
+	float: left;
+	font-size: 24px;
+  	font-weight: bold;
+  	color: #00aed0;
+} 
+
+.tooltip-text-small {
+	float: left;
+	opacity: 0.46;
+ 	font-size: 12px;
+ 	font-weight: bold;
+ 	color: #080808;
 }
 
 #footer {
