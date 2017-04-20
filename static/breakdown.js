@@ -50,7 +50,6 @@ class Breakdown {
 		})
 
 		that.setTooltip();
-
 	}
 
 	setTooltip()
@@ -77,13 +76,22 @@ class Breakdown {
 				up_arrow = '<div class="up-arrow">&#x25B2</div>',
 				down_arrow = '<div class="down-arrow">&#x25BC</div>',
 				change = this_year - last_year,
-				icon = change >= 0 ? up_arrow : down_arrow;
+				icon,
+				formatted_change;
+
+				if (change >= 0) {
+					formatted_change = '$' + change.toLocaleString('en-US');
+					icon = up_arrow;
+				} else {
+					formatted_change = '-$' + Math.abs(change).toLocaleString('en-US');
+					icon = down_arrow;
+				}
 
 				return 	'<div class="tooltip-wrapper">' +
 						'<div class="tooltip-name">' + name +'</div>' +  
 						'<div class="tooltip-text-big">$' + this_year.toLocaleString('en-US') + '</div>' +
 						'<div class="tooltip-text-small">Fiscal Year 2017-2018</div>' +
-						'<div class="tooltip-text-big">$' + change.toLocaleString('en-US') + icon + '</div>' +
+						'<div class="tooltip-text-big">' + formatted_change + icon + '</div>' +
 						'<div class="tooltip-text-small">From Previous Year</div>' +
 						'</div>';
 			}
