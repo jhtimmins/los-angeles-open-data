@@ -17,6 +17,18 @@ var Base = {
 			window.location = 'https://data.lacity.org/browse?q=budget&sortBy=relevance&utf8=%E2%9C%93';
 		})
 
+		$("#supporting_info").on("click", function() {
+			window.location = 'http://cao.lacity.org/budget17-18/2017-18Supp_Info.pdf';
+		})
+
+		$("#full_budget").on("click", function() {
+			window.location = 'http://cao.lacity.org/budget17-18/2017-18Proposed_Budget.pdf';
+		})
+
+		$("#revenue").on("click", function() {
+			window.location = 'http://cao.lacity.org/budget17-18/2017-18Revenue_Outlook.pdf';
+		})
+
 		$(window).resize(function() {
 			that.handleWidthDepartment();
 			that.handleWidthHome();

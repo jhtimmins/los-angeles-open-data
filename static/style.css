@@ -169,6 +169,7 @@ body {
   	border-width: 0px;
   	color: #ffffff;
   	cursor: pointer;
+  	margin-top: 9px;
 }
 
 .nav-button:hover {
@@ -184,12 +185,14 @@ body {
 }
 
 .small-button {
-	margin-top: 9px;
 	width: 48.5%;
 }
 
 .big-button {
 	min-width: 100%;
+}
+
+#departments {
 	margin-top: 50px;
 }
 
