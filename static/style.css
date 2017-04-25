@@ -112,6 +112,11 @@ body {
   	color: #000000;
 }
 
+#hero {
+	width: 100vw;
+	max-height: 363px;
+}
+
 .hero-text-wrapper {
  	left: 0;
  	right: 0;
