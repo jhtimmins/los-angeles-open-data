@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  	<div class="image">
+		<img src="/static/images/la-small.jpg" alt="Los Angeles Skyline" />
+		<div class="hero-text-wrapper">
+			<div class="hero-text-primary">City of Los Angeles Operating Budget FY18</div>
+			<div class="hero-text-secondary">"Every Angeleno deserves to know how their tax dollars are being spent."</div> 
+			<div class="hero-text-tertiary">—Los Angeles Mayor Eric Garcetti</div>
+		</div>
+	</div>
+	<div class="main">
+		<div class="body-text">
+			<div class="home-total home-total-citywide">
+				$9.23B
+			</div>
+			<div class="home-total-citywide-label">
+				IN REVENUE AND EXPENSES
+			</div>
+			<div class="home-total-citywide-detail">
+				Key investments towards making LA prosperous, livable, safe, and well run include:
+			</div>
+			<div class="home-total-wrapper">
+				<div class="home-total">$176.6M</div>
+				<div class="home-total-detail">
+					to address homelessness
+				</div>
+			</div>
+			<div class="home-total-wrapper">
+				<div class="home-total">$30M</div>
+				<div class="home-total-detail">
+				to repair the city’s streets
+				</div>
+			</div>
+			<div id="nav-button-wrapper">
+				<button id="departments" class="nav-button big-button">Expense Breakdown By Department</button>
+				<button id="mayor" class="nav-button small-button left-button">Mayor's Budget Letter</button>
+				<button id="data" class="nav-button small-button right-button">Access All Data</button>
+				<button id="departments" class="nav-button big-button">Full Budget Document</button>
+				<button id="mayor" class="nav-button small-button left-button">Revenue Outlook</button>
+				<button id="data" class="nav-button small-button right-button">Supporting Information</button>
+			</div>
+		</div>
+		<div class="priority-image-wrapper">
+			<img class="priority-image" src="/static/images/priority-breakdown.svg" />
+		</div>
+	</div>
+{% endblock %}
