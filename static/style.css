@@ -114,7 +114,7 @@ body {
 
 #hero {
 	width: 100vw;
-	max-height: 363px;
+	/*max-height: 25vh;*/
 }
 
 .hero-text-wrapper {
